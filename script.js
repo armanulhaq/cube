@@ -243,3 +243,113 @@ const statsSection = document.querySelector(".stats");
 if (statsSection) {
     counterObserver.observe(statsSection);
 }
+
+// Testimonials Slider
+document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.querySelector(".testimonials__slider");
+    const slides = document.querySelectorAll(".testimonial");
+    const prevButton = document.querySelector(".testimonials__nav--prev");
+    const nextButton = document.querySelector(".testimonials__nav--next");
+    const dots = document.querySelectorAll(".testimonials__dot");
+
+    let currentPosition = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            const slideWidth = slides[0].offsetWidth + 24;
+            slider.style.transform = `translateX(-${
+                currentPosition * slideWidth
+            }px)`;
+        } else {
+            const containerWidth = slider.parentElement.offsetWidth;
+            const slideWidth = (containerWidth - 48) / 3 + 24;
+            slider.style.transform = `translateX(-${
+                currentPosition * slideWidth
+            }px)`;
+        }
+
+        // Update button states
+        prevButton.style.opacity = currentPosition === 0 ? "0.5" : "1";
+        prevButton.style.pointerEvents =
+            currentPosition === 0 ? "none" : "auto";
+
+        const maxPosition = isMobile ? totalSlides - 1 : totalSlides - 3;
+        nextButton.style.opacity = currentPosition >= maxPosition ? "0.5" : "1";
+        nextButton.style.pointerEvents =
+            currentPosition >= maxPosition ? "none" : "auto";
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.remove("active");
+        });
+        // Calculate which dot should be active
+        const activeDotIndex = Math.min(
+            Math.floor(currentPosition / (isMobile ? 1 : 1)),
+            dots.length - 1
+        );
+        dots[activeDotIndex].classList.add("active");
+    }
+
+    function nextSlide() {
+        const isMobile = window.innerWidth <= 768;
+        const maxPosition = isMobile ? totalSlides - 1 : totalSlides - 3;
+
+        if (currentPosition < maxPosition) {
+            currentPosition++;
+            updateSlider();
+        }
+    }
+
+    function prevSlide() {
+        if (currentPosition > 0) {
+            currentPosition--;
+            updateSlider();
+        }
+    }
+
+    // Event listeners
+    nextButton.addEventListener("click", nextSlide);
+    prevButton.addEventListener("click", prevSlide);
+
+    // Handle window resize
+    let lastWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+        if (
+            (window.innerWidth <= 768 && lastWidth > 768) ||
+            (window.innerWidth > 768 && lastWidth <= 768)
+        ) {
+            currentPosition = 0;
+        }
+        lastWidth = window.innerWidth;
+        updateSlider();
+    });
+
+    // Initial setup
+    updateSlider();
+});
+
+// FAQ Accordion
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll(".faq__item");
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector(".faq__question");
+
+        question.addEventListener("click", () => {
+            const isActive = item.classList.contains("active");
+
+            // Close all other items
+            faqItems.forEach((otherItem) => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove("active");
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle("active");
+        });
+    });
+});
