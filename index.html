@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alcami</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="announcement">
+                GET 25% OFF YOUR FIRST MONTH. FREE SHIPPING ON U.S ORDERS.
+            </div>
+
+            <div
+                id="expanded-search-bar"
+                class="search-expanded"
+                style="display: none"
+            >
+                <div class="search-expanded__content">
+                    <img
+                        src="assets/images/Navbar/brand-logo.svg"
+                        alt="Alcami Logo"
+                        class="logo"
+                    />
+                    <div class="search-expanded__input-wrapper">
+                        <input
+                            type="text"
+                            placeholder="Search For Products..."
+                            class="search-expanded__input"
+                        />
+                        <button
+                            class="search-expanded__close"
+                            id="collapse-search"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line
+                                    x1="21"
+                                    y1="21"
+                                    x2="16.65"
+                                    y2="16.65"
+                                ></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="btn btn--primary">
+                        Try Alcami <span>→</span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <div class="nav__left">
+                    <img
+                        src="assets/images/Navbar/brand-logo.svg"
+                        alt="Alcami Logo"
+                        class="logo"
+                    />
+                </div>
+                <div class="nav__links">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li class="nav__dropdown">
+                            <a href="#">Shop</a>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="nav__dropdown-icon"
+                            >
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </li>
+                        <li><a href="#">Elements</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav__right">
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input
+                                type="text"
+                                class="search-input"
+                                placeholder="Search For Products..."
+                            />
+                            <button class="search-close">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="search-cta-container">
+                            <button class="search-icon">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line
+                                        x1="21"
+                                        y1="21"
+                                        x2="16.65"
+                                        y2="16.65"
+                                    ></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="cta-button">
+                        Try Alcami <span>→</span>
+                    </button>
+                    <div class="nav__menu-container">
+                        <button class="nav__menu" id="hamburger-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <div class="mobile-menu">
+                            <button class="mobile-menu__close">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                            <ul>
+                                <li>Home</li>
+                                <li class="with-dropdown">
+                                    Shop
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="down-icon"
+                                    >
+                                        <polyline
+                                            points="6 9 12 15 18 9"
+                                        ></polyline>
+                                    </svg>
+                                </li>
+                                <li>Elements</li>
+                                <li>About Us</li>
+                                <li>Blog</li>
+                                <li>Contact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero__content">
+                <div class="hero__rating">
+                    <div class="just-rating-container">
+                        <span class="rating__star">★</span>
+                        <span class="rating__text">4.8 star rating</span>
+                    </div>
+
+                    <span class="rating__award"
+                        >awarded the top adaptogen blend in the world</span
+                    >
+                </div>
+
+                <h1 class="hero__title">Achieve your highest self.</h1>
+
+                <div class="hero__stats">
+                    <div class="stat">
+                        <h2 class="stat__number">10x</h2>
+                        <p class="stat__label">concentration</p>
+                    </div>
+                    <div class="stat">
+                        <h2 class="stat__number">9</h2>
+                        <p class="stat__label">powerful<br />ingredients</p>
+                    </div>
+                    <div class="stat">
+                        <h2 class="stat__number">1000<span>mg</span></h2>
+                        <p class="stat__label">of Adaptogens<br />per dose</p>
+                    </div>
+                </div>
+
+                <a href="#" class="hero__cta">
+                    Shop Now
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hero__image">
+                <img
+                    src="assets/images/Hero/products.png"
+                    alt="Alcami Products"
+                    class="products-image"
+                />
+            </div>
+        </section>
+        <div class="main-footer-container">
+            <div class="main-footer">
+                Incredible Taste And Effects You Can Feel
+            </div>
+        </div>
+
+        <section class="ingredients">
+            <div class="ingredients__product">
+                <img
+                    src="assets/images/Hero/elements.png"
+                    alt="Alcami Product"
+                    class="product-image"
+                />
+            </div>
+
+            <div class="ingredients__content">
+                <div class="ingredients__header">
+                    <span class="ingredients__tag">9 POWERFUL ELEMENTS</span>
+                    <h2 class="ingredients__title">
+                        All of the Best Ingredients, None of the Compromise
+                    </h2>
+                    <p class="ingredients__description">
+                        Alcami uses <strong>x10 potency</strong> in every
+                        serving, formulated for maximum absorption to ensure
+                        your body gets the most out of every scoop.
+                    </p>
+                    <a href="#" class="ingredients__cta">
+                        View full ingredients
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="guarantee">
+            <div class="guarantee__grid">
+                <div class="guarantee__item">
+                    <div class="guarantee__header">OUR GUARANTEE</div>
+                </div>
+                <div class="guarantee__item">
+                    <img
+                        src="assets/images/Hero/guarantee-heart.svg"
+                        alt="30-day Guarantee"
+                    />
+                    <div class="guarantee__content">
+                        <h3>30-day Guarantee</h3>
+                        <p>Love Alcami or send it back</p>
+                    </div>
+                </div>
+                <div class="guarantee__item">
+                    <img
+                        src="assets/images/Hero/guarantee-earth.svg"
+                        alt="Worldwide Shipping"
+                    />
+                    <div class="guarantee__content">
+                        <h3>Worldwide Shipping</h3>
+                        <p>Alcami ships everywhere</p>
+                    </div>
+                </div>
+                <div class="guarantee__item">
+                    <img
+                        src="assets/images/Hero/guarantee-parcel.svg"
+                        alt="Fast Delivery"
+                    />
+                    <div class="guarantee__content">
+                        <h3>Fast Delivery</h3>
+                        <p>On time quick shipping</p>
+                    </div>
+                </div>
+                <div class="guarantee__item">
+                    <img
+                        src="assets/images/Hero/guarantee-eco.svg"
+                        alt="Eco Certified"
+                    />
+                    <div class="guarantee__content">
+                        <h3>Eco Certified</h3>
+                        <p>Carbon neutral eco packaging</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="press">
+            <div class="press__grid">
+                <div class="press__header">AS SEEN IN</div>
+                <div class="press__logos">
+                    <img src="assets/images/Hero/Fast.svg" alt="Fast Company" />
+                    <img src="assets/images/Hero/Forbes.svg" alt="Forbes" />
+                    <img src="assets/images/Hero/Goop.svg" alt="Goop" />
+                    <img src="assets/images/Hero/Time.svg" alt="Time" />
+                    <img
+                        src="assets/images/Hero/Nytimes.svg"
+                        alt="The New York Times"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <section class="product">
+            <div class="product__header">
+                <div class="product__header-content">
+                    <h1 class="details__title">Alcami Elements</h1>
+                    <div class="details__rating">
+                        <div class="rating__stars">★★★★★</div>
+                        <span>4.7 (899+ reviews)</span>
+                    </div>
+                    <p class="details__desc">
+                        Discover the ancient wisdom supported by modern science,
+                        all within the synergy of Alcami Elements. Designed for
+                        those who aspire to elevate every facet of life with
+                        awareness and intention.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product__container">
+                <div class="product__gallery">
+                    <div class="gallery">
+                        <div class="gallery__main">
+                            <div class="gallery__slide active">
+                                <img
+                                    src="assets/images/Products/Product-Original.png"
+                                    alt="Product View 1"
+                                />
+                            </div>
+                            <div class="gallery__slide">
+                                <img
+                                    src="assets/images/Products/Product-Original-2.svg"
+                                    alt="Product View 2"
+                                />
+                            </div>
+                            <div class="gallery__slide">
+                                <img
+                                    src="assets/images/Products/Product-Original-3.svg"
+                                    alt="Product View 3"
+                                />
+                            </div>
+                            <div class="gallery__slide">
+                                <img
+                                    src="assets/images/Products/Product-Original-4.svg"
+                                    alt="Product View 4"
+                                />
+                            </div>
+
+                            <div class="gallery__navigation">
+                                <img
+                                    class="gallery__nav gallery__nav--prev"
+                                    src="assets/images/Products/Left-Slide.svg"
+                                    alt="Previous"
+                                />
+                                <div class="gallery__dots">
+                                    <span class="gallery__dot active"></span>
+                                    <span class="gallery__dot"></span>
+                                    <span class="gallery__dot"></span>
+                                    <span class="gallery__dot"></span>
+                                </div>
+
+                                <img
+                                    class="gallery__nav gallery__nav--next"
+                                    src="assets/images/Products/Right-Slide.svg"
+                                    alt="Next"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="gallery__thumbs">
+                            <div class="gallery__thumb active">
+                                <img
+                                    src="assets/images/Products/Product-Original.png"
+                                    alt="Thumbnail 1"
+                                />
+                            </div>
+                            <div class="gallery__thumb">
+                                <img
+                                    src="assets/images/Products/Product-Original-2.svg"
+                                    alt="Thumbnail 2"
+                                />
+                            </div>
+                            <div class="gallery__thumb">
+                                <img
+                                    src="assets/images/Products/Product-Original-3.svg"
+                                    alt="Thumbnail 3"
+                                />
+                            </div>
+                            <div class="gallery__thumb">
+                                <img
+                                    src="assets/images/Products/Product-Original-4.svg"
+                                    alt="Thumbnail 4"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product__options">
+                    <div class="flavors">
+                        <h2 class="flavors__title">Choose a flavor</h2>
+                        <div class="flavors__options">
+                            <div class="flavor">
+                                <input
+                                    type="radio"
+                                    id="original"
+                                    name="flavor"
+                                    value="original"
+                                    checked
+                                />
+                                <label for="original">
+                                    <img
+                                        src="assets/images/Products/Product-1-small.png"
+                                        alt="Original"
+                                    />
+                                    <span>Original</span>
+                                </label>
+                            </div>
+                            <div class="flavor">
+                                <input
+                                    type="radio"
+                                    id="matcha"
+                                    name="flavor"
+                                    value="matcha"
+                                />
+                                <label for="matcha">
+                                    <img
+                                        src="assets/images/Products/Product-2-small.svg"
+                                        alt="Matcha"
+                                    />
+                                    <span>Matcha</span>
+                                </label>
+                            </div>
+                            <div class="flavor">
+                                <input
+                                    type="radio"
+                                    id="cacao"
+                                    name="flavor"
+                                    value="cacao"
+                                />
+                                <label for="cacao">
+                                    <img
+                                        src="assets/images/Products/Product-3-small.svg"
+                                        alt="Cacao"
+                                    />
+                                    <span>Cacao</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="purchase-options">
+                        <div class="purchase__option purchase__option--popular">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="option__content">
+                                <input
+                                    type="radio"
+                                    id="single"
+                                    name="purchase"
+                                    value="single"
+                                    checked
+                                />
+                                <label for="single">
+                                    <span>Single Kit Subscription</span>
+                                    <div class="price">
+                                        <span>$37 USD</span>
+                                        <span class="price--original">$46</span>
+                                    </div>
+                                </label>
+
+                                <div class="included">
+                                    <h3>What's Included:</h3>
+                                    <div class="included__packages">
+                                        <div class="package">
+                                            <span>Every 30 Days</span>
+                                            <img
+                                                src="assets/images/Products/Product-1-small.png"
+                                                alt="Subscription Package"
+                                            />
+                                        </div>
+                                        <div class="package">
+                                            <span>One Time (Free)</span>
+                                            <img
+                                                src="assets/images/Products/kit.svg"
+                                                alt="Free Package"
+                                            />
+                                        </div>
+                                    </div>
+                                    <ul class="benefits">
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            30 Servings Shipped Monthly
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            <span
+                                                ><strong>Free</strong> Golden
+                                                Kit Gold Bottle + Spoon (42$
+                                                Value)</span
+                                            >
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            <span
+                                                ><strong>Free</strong> 60 Days
+                                                Supply Of Alcami Shilajit (78$
+                                                Value)</span
+                                            >
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            <span
+                                                ><strong>50% OFF</strong>
+                                                Shipping (Over $7-$10 In
+                                                Savings)</span
+                                            >
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            Pause Or Cancel Anytime After 3
+                                            Months Minimum
+                                        </li>
+                                        <li>
+                                            <img
+                                                src="assets/images/Products/checkmark.svg"
+                                                alt="Check"
+                                            />
+                                            90 Day Money Back Guarantee*
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="purchase__option">
+                            <div class="option__content">
+                                <input
+                                    type="radio"
+                                    id="double"
+                                    name="purchase"
+                                    value="double"
+                                />
+                                <label for="double">
+                                    <span>Double Kit Subscription</span>
+                                    <div class="price">
+                                        <span>$68 USD</span>
+                                        <span class="price--original">$83</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="purchase__option">
+                            <div class="option__content">
+                                <input
+                                    type="radio"
+                                    id="once"
+                                    name="purchase"
+                                    value="once"
+                                />
+                                <label for="once">
+                                    <span>Try Once</span>
+                                    <div class="price">
+                                        <span>$46 USD</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-cart">Add to Cart →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="certifications">
+            <div class="certifications__container">
+                <div class="certification">
+                    <img src="assets/images/Products/gmo.svg" alt="Non-GMO" />
+                    <span>Non-GMO</span>
+                </div>
+                <div class="certification">
+                    <img
+                        src="assets/images/Products/dairy.svg"
+                        alt="Dairy Free"
+                    />
+                    <span>Dairy Free</span>
+                </div>
+                <div class="certification">
+                    <img src="assets/images/Products/vegan.svg" alt="Vegan" />
+                    <span>Vegan</span>
+                </div>
+                <div class="certification">
+                    <img src="assets/images/Products/keto.svg" alt="Keto" />
+                    <span>Keto</span>
+                </div>
+                <div class="certification">
+                    <img
+                        src="assets/images/Products/gmp.svg"
+                        alt="GMP Certified"
+                    />
+                    <span>GMP Certified</span>
+                </div>
+                <div class="certification">
+                    <img
+                        src="assets/images/Products/nsf.svg"
+                        alt="NSF Certified"
+                    />
+                    <span>NSF Certified</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="shilajit">
+            <div class="shilajit__container">
+                <div class="shilajit__header">
+                    <h2>Himalayan Shilajit</h2>
+                    <p>NATURE'S ULTIMATE ADAPTOGEN</p>
+                </div>
+
+                <div class="shilajit__content">
+                    <div class="shilajit__image">
+                        <img
+                            src="assets/images/Other Products/Shilajith.png"
+                            alt="Himalayan Shilajit Product"
+                        />
+                    </div>
+
+                    <div class="shilajit__benefits">
+                        <div class="benefit-card">
+                            <div class="benefit-card__icon">
+                                <img
+                                    src="assets/images/Other Products/Boost.svg"
+                                    alt="Energy Icon"
+                                />
+                            </div>
+                            <div class="benefit-card__content">
+                                <h3>Boosts Energy and Stamina</h3>
+                                <p>
+                                    Shilajit enhances vitality, supporting
+                                    increased energy levels, physical endurance,
+                                    and overall stamina.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-card__icon">
+                                <img
+                                    src="assets/images/Other Products/Bones.svg"
+                                    alt="Bone Health Icon"
+                                />
+                            </div>
+                            <div class="benefit-card__content">
+                                <h3>Enhances Bone and Men's Health</h3>
+                                <p>
+                                    Shilajit provides essential minerals for
+                                    strong bones and has traditional uses in
+                                    supporting men's reproductive health and
+                                    testosterone levels
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-card__icon">
+                                <img
+                                    src="assets/images/Other Products/Cognitive.svg"
+                                    alt="Brain Icon"
+                                />
+                            </div>
+                            <div class="benefit-card__content">
+                                <h3>
+                                    Promotes Cognitive Function & Stress Relief
+                                </h3>
+                                <p>
+                                    Shilajit may improve mental clarity, focus,
+                                    and memory while helping the body adapt to
+                                    stress, enhancing overall resilience.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-card__icon">
+                                <img
+                                    src="assets/images/Other Products/Immune.svg"
+                                    alt="Immune Health Icon"
+                                />
+                            </div>
+                            <div class="benefit-card__content">
+                                <h3>Supports Immune Health & Anti-Aging</h3>
+                                <p>
+                                    Rich in antioxidants, Shilajit aids in
+                                    reducing oxidative stress, boosting the
+                                    immune system, and promoting skin health for
+                                    a youthful appearance
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="shilajit__cta">Try Shilajit →</a>
+            </div>
+        </section>
+
+        <section class="subscription">
+            <div class="subscription__content">
+                <span class="subscription__tag">SUBSCRIPTION</span>
+
+                <h2 class="subscription__title">
+                    Subscribe & save <strong>20%</strong> + free<br />
+                    frother and bottle and spoon
+                </h2>
+
+                <div class="subscription__benefits">
+                    <span class="benefit-tag">LASER FOCUS</span>
+                    <span class="benefit-tag">SUSTAINED ENERGY</span>
+                    <span class="benefit-tag">CLEAR MIND</span>
+                    <span class="benefit-tag">IMPROVED MOOD</span>
+                    <span class="benefit-tag">NO CAFFEINE</span>
+                    <span class="benefit-tag">CALM BALANCE</span>
+                </div>
+
+                <a href="#" class="subscription__cta">Subscribe Now →</a>
+            </div>
+            <img
+                src="assets/images/Other Products/subcription.svg"
+                alt="Subscription Package"
+                class="subscription__bg"
+            />
+        </section>
+
+        <section class="ritual">
+            <div class="ritual__container">
+                <div class="ritual__content">
+                    <h2 class="ritual__title">
+                        Your morning ritual,<br />
+                        made to awaken your mind.
+                    </h2>
+                    <p class="ritual__desc">
+                        Transform your mornings with a simple, potent, and
+                        powerful ritual that fuels your day.
+                    </p>
+
+                    <div class="ritual__steps">
+                        <div class="step">
+                            <span class="step__number">1</span>
+                            <div class="step__content">
+                                <h3>Prep your favorite drink</h3>
+                                <p>
+                                    Start your morning with your favorite
+                                    beverage, whether it's a nutrient-packed
+                                    smoothie or a warm cup of tea.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <span class="step__number">2</span>
+                            <div class="step__content">
+                                <h3>Take a scoop</h3>
+                                <p>
+                                    Simply add one potent scoop packed with x10
+                                    the potency to boost energy, enhance
+                                    clarity, and support wellness all day.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <span class="step__number">3</span>
+                            <div class="step__content">
+                                <h3>Customize and mix</h3>
+                                <p>
+                                    Personalize your morning drink. Stir well
+                                    for a perfectly blended, nutrient-rich
+                                    beverage that awakens your mind and prepares
+                                    you for the day.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="ritual__cta"
+                        >See how people are using Alcami →</a
+                    >
+                </div>
+
+                <div class="ritual__video">
+                    <img
+                        src="assets/images/Other Products/Howto.png"
+                        alt="How to use Alcami"
+                        class="ritual__video-thumbnail"
+                    />
+                    <button class="ritual__play-button">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            class="ritual__play-icon"
+                            fill="currentColor"
+                        >
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stats__container">
+                <div class="stat-item">
+                    <div class="stat-item__number">
+                        <span class="counter" data-target="84">0</span>%
+                    </div>
+                    <p class="stat-item__text">
+                        Reported increased energy throughout their day
+                    </p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-item__number">
+                        <span class="counter" data-target="78">0</span>%
+                    </div>
+                    <p class="stat-item__text">Reported feeling more focused</p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-item__number">
+                        <span class="counter" data-target="89">0</span>%
+                    </div>
+                    <p class="stat-item__text">
+                        Reported a sense of calmness & steady mood
+                    </p>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-item__number">
+                        <span class="counter" data-target="90">0</span>%
+                    </div>
+                    <p class="stat-item__text">
+                        Reported feeling an overall increased wellness in their
+                        gut skin, hair, and physical health
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div class="comparison__divider">———</div>
+            <h2 class="comparison__title">
+                Why Alcami is the #1 Choice for your<br />Productivity and
+                Performance
+            </h2>
+
+            <div class="comparison__table-wrapper">
+                <table class="comparison__table">
+                    <thead>
+                        <tr>
+                            <th class="benefits-header">BENEFITS</th>
+                            <th>
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <img
+                                            src="assets/images/Products/Product-1-small.png"
+                                            alt="ALCAMI Product"
+                                        />
+                                    </div>
+                                    <img
+                                        src="assets/images/Navbar/brand-logo.svg"
+                                        alt="ALCAMI"
+                                        class="brand-logo"
+                                    />
+                                </div>
+                            </th>
+                            <th>
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <img
+                                            src="assets/images/Other Products/mdwtr.svg"
+                                            alt="MUD/WTR Product"
+                                        />
+                                    </div>
+                                    <span>MUD/WTR</span>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <img
+                                            src="assets/images/Other Products/RYZE.svg"
+                                            alt="RYZE Product"
+                                        />
+                                    </div>
+                                    <span>RYZE</span>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="product-header">
+                                    <div class="product-image">
+                                        <img
+                                            src="assets/images/Other Products/DOZE.svg"
+                                            alt="EVERYDAY DOSE Product"
+                                        />
+                                    </div>
+                                    <span>EVERYDAY DOSE</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Potency Concentration</td>
+                            <td>10x</td>
+                            <td>1x</td>
+                            <td>1x</td>
+                            <td>10x</td>
+                        </tr>
+                        <tr>
+                            <td>Extracts Concentrates</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Effects You Can Feel</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td># of Beneficial Ingredients</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Incredible Taste</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>No Caffeine</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>No Starch or Myceliated Oats</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>100% Fruiting Body Mushroom</td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCross.svg"
+                                    alt="No"
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src="assets/images/Other Products/TableCheck.svg"
+                                    alt="Yes"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a href="#" class="comparison__cta">Try It Risk-Free →</a>
+        </section>
+
+        <section class="founders">
+            <div class="founders__video">
+                <img
+                    src="assets/images/Other Products/Founder.png"
+                    alt="Founders Video Thumbnail"
+                />
+                <button class="founders__play-button">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        class="founders__play-icon"
+                        fill="currentColor"
+                    >
+                        <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                </button>
+            </div>
+            <div class="founders__content">
+                <div class="founders__left">
+                    <h2 class="founders__title">From the Founders</h2>
+                    <a href="#" class="founders__cta">About Us →</a>
+                </div>
+                <div class="founders__right">
+                    <p class="founders__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Consectetur adipiscing elit, sed do
+                        eiusmod
+                    </p>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
