@@ -1,0 +1,127 @@
+/* Lazy loading styles */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Fade in animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide up animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scale animations */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply animations to elements */
+.hero__content {
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero__image {
+    animation: fadeIn 1s ease-out;
+}
+
+.ingredients__content {
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.guarantee__item {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.guarantee__item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.guarantee__item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.guarantee__item:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.guarantee__item:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.testimonial {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.faq__answer {
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Hover animations */
+.btn--primary:hover,
+.btn-cart:hover,
+.subscription__cta:hover,
+.ritual__cta:hover,
+.comparison__cta:hover,
+.founders__cta:hover,
+.faqs__cta:hover,
+.faqs__see-all:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-out;
+}
+
+/* Smooth transitions for interactive elements */
+.faq__question {
+    transition: all 0.3s ease-out;
+}
+
+.faq__icon {
+    transition: transform 0.3s ease-out;
+}
+
+.faq__question.active .faq__icon {
+    transform: rotate(45deg);
+}
+
+/* Loading animation for stats */
+.counter {
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Smooth transitions for mobile menu */
+.mobile-menu {
+    transition: transform 0.3s ease-out;
+}
+
+/* Smooth transitions for search bar */
+.search-expanded {
+    transition: all 0.3s ease-out;
+}
+
+/* Smooth transitions for gallery navigation */
+.gallery__slide {
+    transition: opacity 0.3s ease-out;
+}
