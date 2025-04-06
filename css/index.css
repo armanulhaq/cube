@@ -3460,10 +3460,6 @@ body {
     margin-bottom: 32px;
 }
 
-.footer__logo img {
-    width: 100%;
-}
-
 .footer .footer__nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
