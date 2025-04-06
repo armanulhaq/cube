@@ -6,11 +6,24 @@ const searchInput = document.querySelector(".search-input");
 const hamburgerMenu = document.querySelector(".nav__menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuClose = document.querySelector(".mobile-menu__close");
+const mobileSearchBtn = document.querySelector(".mobile-search-btn");
+const mobileSearchExpanded = document.querySelector(".mobile-search-expanded");
+const mobileSearchClose = document.querySelector(
+    ".mobile-search-expanded__close"
+);
+const mobileSearchInput = document.querySelector(
+    ".mobile-search-expanded__input"
+);
+const body = document.body;
 
 // Function to expand search
 function expandSearch() {
     searchContainer.classList.add("active");
     searchInput.focus();
+    // Close mobile menu if open
+    if (hamburgerMenu.classList.contains("active")) {
+        closeMobileMenu();
+    }
 }
 
 // Function to collapse search
@@ -21,94 +34,97 @@ function collapseSearch() {
 
 // Function to toggle mobile menu
 function toggleMobileMenu() {
-    navLinks.classList.toggle("active");
-    // Toggle hamburger animation if needed
-    this.classList.toggle("active");
+    hamburgerMenu.classList.toggle("active");
+    mobileMenu.style.display = hamburgerMenu.classList.contains("active")
+        ? "block"
+        : "none";
+    body.style.overflow = hamburgerMenu.classList.contains("active")
+        ? "hidden"
+        : "";
+    // Close search if open
+    if (searchContainer.classList.contains("active")) {
+        collapseSearch();
+    }
 }
 
 // Function to close mobile menu
 function closeMobileMenu() {
     hamburgerMenu.classList.remove("active");
-    document.body.style.overflow = "";
+    mobileMenu.style.display = "none";
+    body.style.overflow = "";
 }
 
-// Add event listeners
-searchIcon.addEventListener("click", expandSearch);
-searchClose.addEventListener("click", collapseSearch);
-hamburgerMenu.addEventListener("click", toggleMobileMenu);
+// Function to toggle mobile search
+function toggleMobileSearch() {
+    mobileSearchExpanded.classList.toggle("active");
+    if (mobileSearchExpanded.classList.contains("active")) {
+        mobileSearchInput.focus();
+        // Close mobile menu if open
+        if (hamburgerMenu.classList.contains("active")) {
+            closeMobileMenu();
+        }
+    }
+    body.style.overflow = mobileSearchExpanded.classList.contains("active")
+        ? "hidden"
+        : "";
+}
 
-// Close search on pressing Escape key
+// Function to close mobile search
+function closeMobileSearch() {
+    mobileSearchExpanded.classList.remove("active");
+    body.style.overflow = "";
+    mobileSearchInput.value = "";
+}
+
+// Event Listeners
+if (searchIcon) searchIcon.addEventListener("click", expandSearch);
+if (searchClose) searchClose.addEventListener("click", collapseSearch);
+if (hamburgerMenu) hamburgerMenu.addEventListener("click", toggleMobileMenu);
+if (mobileMenuClose) mobileMenuClose.addEventListener("click", closeMobileMenu);
+if (mobileSearchBtn)
+    mobileSearchBtn.addEventListener("click", toggleMobileSearch);
+if (mobileSearchClose)
+    mobileSearchClose.addEventListener("click", closeMobileSearch);
+
+// Close search and menu on pressing Escape key
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         if (searchContainer.classList.contains("active")) {
             collapseSearch();
         }
-        if (navLinks.classList.contains("active")) {
-            toggleMobileMenu();
+        if (hamburgerMenu.classList.contains("active")) {
+            closeMobileMenu();
+        }
+        if (mobileSearchExpanded.classList.contains("active")) {
+            closeMobileSearch();
         }
     }
 });
 
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+    if (
+        hamburgerMenu.classList.contains("active") &&
+        !mobileMenu.contains(e.target) &&
+        !hamburgerMenu.contains(e.target)
+    ) {
+        closeMobileMenu();
+    }
+});
+
+// Close search when clicking outside
+document.addEventListener("click", (e) => {
+    if (
+        mobileSearchExpanded.classList.contains("active") &&
+        !mobileSearchExpanded.contains(e.target) &&
+        !mobileSearchBtn.contains(e.target)
+    ) {
+        closeMobileSearch();
+    }
+});
+
+// Gallery functionality
 document.addEventListener("DOMContentLoaded", function () {
-    // Get DOM elements
-    const searchContainer = document.querySelector(".search-container");
-    const searchIcon = document.querySelector(".search-icon");
-    const searchClose = document.querySelector(".search-close");
-    const hamburgerMenu = document.querySelector(".nav__menu");
-    const navLinks = document.querySelector(".nav__links");
-
-    // Search functionality
-    if (searchIcon && searchClose) {
-        searchIcon.addEventListener("click", () => {
-            searchContainer.classList.add("active");
-        });
-
-        searchClose.addEventListener("click", () => {
-            searchContainer.classList.remove("active");
-        });
-    }
-
-    // Hamburger menu functionality
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            this.classList.toggle("active");
-
-            // Prevent scrolling when menu is open
-            document.body.style.overflow = this.classList.contains("active")
-                ? "hidden"
-                : "";
-        });
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener("click", (e) => {
-        if (
-            hamburgerMenu.classList.contains("active") &&
-            !mobileMenu.contains(e.target) &&
-            !hamburgerMenu.contains(e.target)
-        ) {
-            closeMobileMenu();
-        }
-    });
-
-    // Close menu on escape key
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && hamburgerMenu.classList.contains("active")) {
-            closeMobileMenu();
-        }
-    });
-
-    // Close button functionality
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            closeMobileMenu();
-        });
-    }
-
     // Gallery Elements
     const gallerySlides = document.querySelectorAll(".gallery__slide");
     const prevButton = document.querySelector(".gallery__nav--prev");
@@ -119,33 +135,51 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
 
     // Function to update slide
-    function showSlide(index) {
+    function updateSlide(index) {
         gallerySlides.forEach((slide) => slide.classList.remove("active"));
         dots.forEach((dot) => dot.classList.remove("active"));
         thumbs.forEach((thumb) => thumb.classList.remove("active"));
 
-        currentSlide = (index + gallerySlides.length) % gallerySlides.length;
-        gallerySlides[currentSlide].classList.add("active");
-        dots[currentSlide].classList.add("active");
-        thumbs[currentSlide].classList.add("active");
+        gallerySlides[index].classList.add("active");
+        dots[index].classList.add("active");
+        thumbs[index].classList.add("active");
+        currentSlide = index;
     }
 
-    // Navigation buttons
+    // Previous slide
     if (prevButton) {
-        prevButton.addEventListener("click", () => showSlide(currentSlide - 1));
+        prevButton.addEventListener("click", () => {
+            const newIndex =
+                currentSlide === 0
+                    ? gallerySlides.length - 1
+                    : currentSlide - 1;
+            updateSlide(newIndex);
+        });
     }
+
+    // Next slide
     if (nextButton) {
-        nextButton.addEventListener("click", () => showSlide(currentSlide + 1));
+        nextButton.addEventListener("click", () => {
+            const newIndex =
+                currentSlide === gallerySlides.length - 1
+                    ? 0
+                    : currentSlide + 1;
+            updateSlide(newIndex);
+        });
     }
 
     // Dot navigation
     dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => showSlide(index));
+        dot.addEventListener("click", () => {
+            updateSlide(index);
+        });
     });
 
     // Thumbnail navigation
     thumbs.forEach((thumb, index) => {
-        thumb.addEventListener("click", () => showSlide(index));
+        thumb.addEventListener("click", () => {
+            updateSlide(index);
+        });
     });
 
     // Product Selection Logic
