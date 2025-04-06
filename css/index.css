@@ -2487,7 +2487,7 @@ body {
 /* Stats Section */
 .stats {
     padding: 40px 65px;
-    background: url("assets/images/Other Products/count.png") center/cover;
+    background: url("/assets/images/Others/count.png") center/cover;
     position: relative;
 }
 
@@ -2584,30 +2584,17 @@ body {
     align-items: center;
 }
 
-.comparison__divider {
-    font-size: 24px;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-.comparison__title {
-    font-size: 48px;
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 60px;
-    color: #333;
-    line-height: 1.2;
-}
-
 .comparison__table-wrapper {
     width: 100%;
     max-width: 1250px;
     overflow-x: auto;
     margin-bottom: 40px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comparison__table {
     width: 100%;
+    min-width: 800px;
     border-collapse: separate;
     border-spacing: 0;
     text-align: center;
@@ -2679,18 +2666,22 @@ body {
 
 @media (max-width: 768px) {
     .comparison {
-        padding: 20px 35px;
-        margin: 0px 0px 0px 5px;
+        padding: 20px 20px;
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .comparison__table-wrapper {
+        margin: 0;
+        width: 100%;
+        overflow-x: auto;
     }
 
     .comparison__title {
         font-size: 28px;
         margin-bottom: 40px;
-    }
-
-    .comparison__table-wrapper {
-        margin: 0 -20px;
-        width: calc(100% + 40px);
+        padding: 0 15px;
     }
 
     .comparison__table {
