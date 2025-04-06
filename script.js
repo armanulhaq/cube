@@ -153,41 +153,45 @@ document.addEventListener("DOMContentLoaded", function () {
     const purchaseInputs = document.querySelectorAll('input[name="purchase"]');
     const addToCartButton = document.querySelector(".btn-cart");
 
-    // Product variants mapping (you can replace these with your actual URLs)
+    // Product variants mapping with dummy URLs for all 9 combinations
     const productVariants = {
         original: {
-            single: "https://example.com/cart/original-single",
-            double: "https://example.com/cart/original-double",
-            once: "https://example.com/cart/original-once",
+            single: "https://checkout.alcami.com/original/single-kit",
+            double: "https://checkout.alcami.com/original/double-kit",
+            once: "https://checkout.alcami.com/original/try-once",
         },
         matcha: {
-            single: "https://example.com/cart/matcha-single",
-            double: "https://example.com/cart/matcha-double",
-            once: "https://example.com/cart/matcha-once",
+            single: "https://checkout.alcami.com/matcha/single-kit",
+            double: "https://checkout.alcami.com/matcha/double-kit",
+            once: "https://checkout.alcami.com/matcha/try-once",
         },
         cacao: {
-            single: "https://example.com/cart/cacao-single",
-            double: "https://example.com/cart/cacao-double",
-            once: "https://example.com/cart/cacao-once",
+            single: "https://checkout.alcami.com/cacao/single-kit",
+            double: "https://checkout.alcami.com/cacao/double-kit",
+            once: "https://checkout.alcami.com/cacao/try-once",
         },
     };
 
-    // Function to update cart URL
+    // Function to update cart URL based on selections
     function updateCartUrl() {
-        const selectedFlavor =
-            document.querySelector('input[name="flavor"]:checked')?.value ||
-            "original";
-        const selectedPurchase =
-            document.querySelector('input[name="purchase"]:checked')?.value ||
-            "single";
+        const selectedFlavor = document.querySelector(
+            'input[name="flavor"]:checked'
+        ).value;
+        const selectedPurchase = document.querySelector(
+            'input[name="purchase"]:checked'
+        ).value;
 
         if (addToCartButton) {
-            addToCartButton.href =
-                productVariants[selectedFlavor][selectedPurchase];
+            const newUrl = productVariants[selectedFlavor][selectedPurchase];
+            addToCartButton.href = newUrl;
+
+            // Optional: Log the current selection and URL (for testing)
+            console.log(`Selected: ${selectedFlavor} - ${selectedPurchase}`);
+            console.log(`Cart URL: ${newUrl}`);
         }
     }
 
-    // Add event listeners to radio buttons
+    // Add event listeners to both flavor and purchase radio buttons
     flavorInputs.forEach((input) => {
         input.addEventListener("change", updateCartUrl);
     });
@@ -198,6 +202,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize with default selection
     updateCartUrl();
+
+    // Function to handle flavor selection and update package images
+    const packageImages = document.querySelectorAll(
+        '.package img[alt="Subscription Package"]'
+    );
+
+    flavorInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+            // Get the selected flavor's image source
+            const selectedFlavorImage =
+                this.nextElementSibling.querySelector("img").src;
+            // Update all package images with the selected flavor's image
+            packageImages.forEach((img) => {
+                img.src = selectedFlavorImage;
+            });
+        });
+    });
+
+    // Purchase option expansion/collapse functionality
+    const purchaseOptions = document.querySelectorAll(".purchase__option");
+
+    function collapseAllOptions() {
+        purchaseOptions.forEach((option) => {
+            const included = option.querySelector(".included");
+            if (included) {
+                included.style.display = "none";
+            }
+            option.classList.remove("expanded");
+        });
+    }
+
+    function expandOption(option) {
+        const included = option.querySelector(".included");
+        if (included) {
+            included.style.display = "block";
+        }
+        option.classList.add("expanded");
+    }
+
+    // Initialize with the checked option expanded
+    const initialCheckedOption = document.querySelector(
+        'input[name="purchase"]:checked'
+    );
+    if (initialCheckedOption) {
+        const optionContainer =
+            initialCheckedOption.closest(".purchase__option");
+        expandOption(optionContainer);
+    }
+
+    // Add click event listeners to purchase options
+    purchaseOptions.forEach((option) => {
+        const radio = option.querySelector('input[type="radio"]');
+        if (radio) {
+            radio.addEventListener("change", function () {
+                collapseAllOptions();
+                expandOption(option);
+            });
+        }
+    });
 });
 
 // Counter Animation

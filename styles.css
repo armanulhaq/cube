@@ -750,23 +750,28 @@ body {
 
 /* Purchase Options */
 .purchase__option {
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.purchase__option--popular {
-    border: none;
-    background: linear-gradient(to right, #caa648, #e4c267);
-    padding: 1px;
+.purchase__option .included {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.purchase__option--popular .option__content {
-    background: white;
-    border-radius: 0 0 12px 12px;
+.purchase__option.expanded {
+    border: 2px solid #4a6741;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.purchase__option.expanded .included {
+    display: block;
+    opacity: 1;
 }
 
 .popular-badge {
@@ -776,6 +781,7 @@ body {
     padding: 8px;
     font-size: 14px;
     font-weight: 300;
+    border-radius: 8px 8px 0 0;
 }
 
 .option__content {
@@ -3521,24 +3527,40 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.6); /* Matching the dimmed white color */
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease;
+    font-weight: 300;
 }
 
 .social-link:hover {
-    color: #dea453;
+    color: #d4a853; /* Golden color on hover */
 }
 
+/* Also update the social icons to match the dimmed appearance */
 .social-icon {
     width: 20px;
     height: 20px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    opacity: 0.6; /* Making icons match the text opacity */
+}
+
+/* When hovering over the link, make the icon match the golden color */
+.social-link:hover .social-icon {
+    opacity: 1;
+}
+
+/* Make sure the navigation links match this same style */
+.footer__nav-group a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    font-weight: 300;
+}
+
+.footer__nav-group a:hover {
+    color: #d4a853;
 }
 
 .footer__right {
@@ -3546,7 +3568,7 @@ body {
 }
 
 .footer__newsletter-title {
-    font-size: 24px;
+    font-size: 20px;
     color: #dea453;
     margin-bottom: 24px;
     font-weight: normal;
@@ -3565,21 +3587,20 @@ body {
     padding: 12px 16px;
     color: #fff;
     font-size: 16px;
-    border-radius: 4px;
+    border: 2px solid #fff;
 }
 
 .footer__input::placeholder {
-    color: #666;
+    color: #fff;
 }
 
 .footer__subscribe {
     background: #fff;
-    color: #000;
+    color: #dea453;
     border: none;
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
@@ -3590,11 +3611,11 @@ body {
 
 .footer__privacy {
     font-size: 14px;
-    color: #666;
+    color: #fff;
 }
 
 .footer__privacy-link {
-    color: #666;
+    color: #fff;
     text-decoration: underline;
 }
 
