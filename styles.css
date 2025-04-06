@@ -3342,7 +3342,7 @@ body {
     height: 656px;
     margin: 50px 65px;
     text-align: center;
-    background: url("assets/images/Other Products/signup.png") center/cover;
+    background: url("/assets/images/Others/signup.png") center/cover;
     color: white;
     overflow: hidden;
     border-radius: 16px;
@@ -3350,7 +3350,7 @@ body {
 
 .newsletter__content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -4004,8 +4004,6 @@ body {
         padding: 8px;
         z-index: 1002;
     }
-
-    /* Hide one of the close buttons */
     .mobile-menu__close:nth-child(2) {
         display: none;
     }
