@@ -11,6 +11,7 @@ img[loading="lazy"].loaded {
 
 /* Responsive styles */
 @media (max-width: 1024px) {
+    /* Slightly faster animations for tablets */
     .hero__content {
         -webkit-animation: slideUp 0.6s ease-out;
         animation: slideUp 0.6s ease-out;
@@ -23,6 +24,7 @@ img[loading="lazy"].loaded {
 }
 
 @media (max-width: 768px) {
+    /* Even faster for smaller tablets - nobody likes waiting! */
     .hero__content {
         -webkit-animation: slideUp 0.5s ease-out;
         animation: slideUp 0.5s ease-out;
@@ -45,6 +47,7 @@ img[loading="lazy"].loaded {
 }
 
 @media (max-width: 480px) {
+    /* Quick and snappy for mobile - battery life is precious! */
     .hero__content {
         -webkit-animation: slideUp 0.4s ease-out;
         animation: slideUp 0.4s ease-out;
@@ -55,7 +58,7 @@ img[loading="lazy"].loaded {
         animation: scaleIn 0.2s ease-out;
     }
 
-    /* Optimize animations for mobile */
+    /* Ditching hover effects on mobile - they just get in the way */
     .btn--primary:hover,
     .btn-cart:hover,
     .subscription__cta:hover,
